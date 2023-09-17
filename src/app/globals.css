@@ -1,0 +1,28 @@
+html,
+body,
+:root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+.css-1gh9j5w-MuiPaper-root-MuiDrawer-paper {
+  border-right: none !important;
+}
