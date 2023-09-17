@@ -15,9 +15,20 @@ interface AuthInteface {
 
 interface ArrayType {
   map: Function;
+  length: number;
 }
 
 interface FolderStructure {
   parentId: string;
   ownerEmail: string;
+}
+
+interface File {
+  imageLink: string;
+  imageName: string;
+  isFolder: boolean;
+  folderName: string;
+  id: string;
+  sharedTo: Array<string>;
+  userEmail: string;
 }

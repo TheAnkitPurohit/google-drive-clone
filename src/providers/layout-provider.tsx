@@ -1,8 +1,10 @@
 /* eslint-disable react/no-children-prop */
 "use client";
 
-import ProtectedLayout from "@/layout/ProtectedLayout";
 import { useEffect, useState } from "react";
+import { Backdrop, CircularProgress } from "@mui/material";
+
+import ProtectedLayout from "@/layout/ProtectedLayout";
 
 interface LayoutProviderProps {
   children: React.ReactNode;
@@ -16,7 +18,14 @@ const LayoutProvider = ({ children }: LayoutProviderProps) => {
   }, []);
 
   if (!isMounted) {
-    return null;
+    return (
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={isMounted}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    );
   }
 
   return <ProtectedLayout children={children} />;

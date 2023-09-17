@@ -72,7 +72,7 @@ const Navbar = ({ state, toggleDrawer }: NavbarProps) => {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
 
-  const { data: session, status } = useSession({
+  const { data: session } = useSession({
     required: true,
   });
 

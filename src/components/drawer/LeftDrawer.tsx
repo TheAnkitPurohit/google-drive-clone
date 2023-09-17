@@ -12,11 +12,19 @@ import {
 
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { SideNavList } from "@/utils/SideNavList";
+import { useFetchSession } from "@/hooks/useSession";
+import { useSearchParams } from "next/navigation";
+import CreateButton from "@/components/button/CreateButton";
 
 const LeftDrawer = () => {
+  let { session } = useFetchSession();
+
+  const searchParams = useSearchParams();
+  const parentId = searchParams.get("id");
+
+  const ownerEmail = session?.user?.email;
+
   return (
     <Box sx={{ overflow: "auto" }}>
       <Box
@@ -25,9 +33,10 @@ const LeftDrawer = () => {
           flexDirection: "column",
         }}
       >
-        <Button>Create</Button>
-        <Button>Create</Button>
-        <Button>Create</Button>
+        <CreateButton
+          parentId={parentId as string}
+          ownerEmail={ownerEmail as string}
+        />
       </Box>
       <Box
         sx={{
