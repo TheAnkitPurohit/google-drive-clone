@@ -120,7 +120,7 @@ const Navbar = ({ state, toggleDrawer }: NavbarProps) => {
             </Box>
 
             {/* search  */}
-            <Search>
+            {/* <Search>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -128,7 +128,7 @@ const Navbar = ({ state, toggleDrawer }: NavbarProps) => {
                 placeholder="Search…"
                 inputProps={{ "aria-label": "search" }}
               />
-            </Search>
+            </Search> */}
 
             {/* icons  */}
             <Box sx={{ display: "flex" }}>

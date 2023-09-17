@@ -35,7 +35,11 @@ const LeftDrawer = () => {
         }}
       >
         {SideNavList.map((item) => (
-          <ListItemButton key={item.label} sx={{ py: 0, minHeight: 32 }}>
+          <ListItemButton
+            key={item.label}
+            sx={{ py: 0, minHeight: 32 }}
+            selected={item.label === "Authentication"}
+          >
             <ListItemIcon sx={{ color: "inherit" }}>{item.icon}</ListItemIcon>
             <ListItemText
               primary={item.label}
