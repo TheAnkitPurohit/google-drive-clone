@@ -17,6 +17,8 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { ColorModeContext } from "@/context/ColorModeContext";
+import { useFetchSession } from "@/hooks/useSession";
+import { useSession } from "next-auth/react";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -69,6 +71,10 @@ const Navbar = ({ state, toggleDrawer }: NavbarProps) => {
   // theme
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
+
+  const { data: session, status } = useSession({
+    required: true,
+  });
 
   return (
     <Box
@@ -144,7 +150,10 @@ const Navbar = ({ state, toggleDrawer }: NavbarProps) => {
                 )}
               </IconButton>
 
-              <Avatar alt="Remy Sharp" />
+              <Avatar
+                src={session?.user?.image ?? ""}
+                alt={session?.user?.name ?? ""}
+              />
             </Box>
           </Box>
         </Toolbar>
